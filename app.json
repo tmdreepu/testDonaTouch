@@ -2,6 +2,14 @@
   "expo": {
     "name": "donatouch",
     "slug": "donatouch",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "android": {
+      "package": "com.rahulkumar2121.donatouch"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "35568bb4-17b5-4002-9040-bbf0d1a8c57d"
+      }
+    }
   }
 }

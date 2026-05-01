@@ -34,3 +34,10 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+
+# React Native / Android
+node_modules/
+android/build/
+android/app/build/
+modules/nepting-module/android/build/

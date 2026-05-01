@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <package android:name="com.nepting.android.mobile.payment" />
+        <intent>
+            <action android:name="com.nepting.android.mobile.payment.REQUEST" />
+        </intent>
+    </queries>
+
+    <application>
+        <!-- Your module's application components if any -->
+    </application>
+</manifest>
