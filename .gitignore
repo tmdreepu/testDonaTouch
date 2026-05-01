@@ -41,3 +41,7 @@ node_modules/
 android/build/
 android/app/build/
 modules/nepting-module/android/build/
+
+# Ignore APK files
+*.apk
+android/app/release/
