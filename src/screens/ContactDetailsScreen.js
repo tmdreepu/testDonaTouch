@@ -103,10 +103,9 @@ const ContactDetailsScreen = () => {
                             {agreeCheck ? <IconComponentCheck color={Colors.iconColor} /> : <IconComponentSquareBox color={Colors.iconColor} />}
                             <Text variant='titleMedium'> I agree to be contacted to receive a tax receipt.</Text>
                         </Pressable>
-
-
+                        
                         <CustomGradientButton variant={'titleLarge'} onPress={onClickSendBtn} title={'SEND IT!'} linearBtnStyle={{ flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 24 }} colors={[Colors.primary, Colors.primary, Colors.primary]} icon={'arrow-right'} iconColor={'#fff'} textStyle={{ fontWeight: 'bold' }} />
-                        <CustomGradientButton variant={'titleLarge'} title={'NO RECEIPT'} colors={["#ff0000", "#ff0000", "#ff0000"]} linearBtnStyle={{ borderRadius: 24 }} textStyle={{ fontWeight: 'bold' }} />
+                        <CustomGradientButton variant={'titleLarge'} onPress={()=>navigation.replace('CheckOutScreen')} title={'NO RECEIPT'} colors={["#ff0000", "#ff0000", "#ff0000"]} linearBtnStyle={{ borderRadius: 24 }} textStyle={{ fontWeight: 'bold' }} />
 
 
                     </View>

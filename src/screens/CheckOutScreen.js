@@ -6,8 +6,10 @@ import AmmountButton from '../components/AmmountButton'
 import { IconComponentInfo } from '../utils/IconComponents'
 import CustomGradientButton from '../components/CustomGradientButton '
 import { requireNativeModule } from 'expo-modules-core';
+import { useNavigation } from '@react-navigation/native'
 
 const CheckOutScreen = () => {
+    const navigation = useNavigation();
     const [selectedAmount, setSelectedAmount] = useState("€0.00")
     const ammount = ["€1.00", "€2.00", "€5.00", "€10.00", "€20.00", "€50.00", "Free Ammount", "No Thanks"]
 
@@ -18,34 +20,34 @@ const CheckOutScreen = () => {
     async function handleOpenApp() {
         try {
             const result = await MyNativeModule.openApp();
-            console.log(result); // "APP_OPENED"
             if (result == "APP_OPENED") {
                 const resultstartPayment = await MyNativeModule.startPayment("500", "order_1234234");
-                console.log(resultstartPayment);
+                navigation.navigate('SuccessScreen');
             }
         } catch (error) {
             // This will catch "Activity not found" or "Nepting app not installed"
             console.error("Failed to open app:", error.message);
+            navigation.navigate('PaymentFailedScreen', { ammount: selectedAmount }); // Navigate to PaymentFailedScreen if the app is not installed
         }
     }
 
 
-    const pay = async () => {
-        // try {
-        //     const res = await MyNativeModule.openNepting("100");
+    // const pay = async () => {
+    //     try {
+    //         const res = await MyNativeModule.openNepting("100");
 
-        //     console.log("jfljsl",res);
+    //         console.log("jfljsl",res);
 
-        //     if (res.status === "SUCCESS") {
-        //         // success UI
-        //     } else {
-        //         // failed / cancelled
-        //     }
+    //         if (res.status === "SUCCESS") {
+    //             // success UI
+    //         } else {
+    //             // failed / cancelled
+    //         }
 
-        // } catch (e) {
-        //     console.log(e);
-        // }
-    };
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
+    // };
 
 
 
@@ -71,8 +73,8 @@ const CheckOutScreen = () => {
                 </View>
 
                 <Text variant='titleLarge' style={{ color: '#fff', textTransform: 'uppercase' }}>After tax reduction</Text>
-                <CustomGradientButton variant={'titleLarge'} onPress={handleOpenApp} title={'BACK'} colors={["#db281f", "#db281f", "#db281f"]} linearBtnStyle={{ borderRadius: 0 }} textStyle={{ fontWeight: '600' }} />
-                <CustomGradientButton variant={'titleLarge'} onPress={pay} title={'CONFIRM ORDER'} colors={["#9ac714", "#9ac714", "#9ac714"]} linearBtnStyle={{ borderRadius: 0, flexDirection: 'row', gap: 10 }} textStyle={{ fontWeight: '600' }} icon={'credit-card'} iconColor={'#fff'} iconSize={28} />
+                <CustomGradientButton variant={'titleLarge'} onPress={() => navigation.replace('ContactDetailsScreen')} title={'BACK'} colors={["#db281f", "#db281f", "#db281f"]} linearBtnStyle={{ borderRadius: 0 }} textStyle={{ fontWeight: '600' }} />
+                <CustomGradientButton variant={'titleLarge'} onPress={handleOpenApp} title={'CONFIRM ORDER'} colors={["#9ac714", "#9ac714", "#9ac714"]} linearBtnStyle={{ borderRadius: 0, flexDirection: 'row', gap: 10 }} textStyle={{ fontWeight: '600' }} icon={'credit-card'} iconColor={'#fff'} iconSize={28} />
             </View>
         </ ScrollView>
     )
