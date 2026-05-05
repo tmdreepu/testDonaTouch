@@ -93,13 +93,13 @@ const ContactDetailsScreen = () => {
                         <Text variant='titleLarge' style={{ textAlign: 'center', fontWeight: 'bold', }}>Please provide your contact details to receive the tax receipt.</Text>
                         <CustomInputWithIcon placeholder={'First Name *'} icon='user' onChangeText={(text) => handleChange('firstName', text)} error={errors.firstName} />
                         <CustomInputWithIcon placeholder={'Last Name *'} icon='user' onChangeText={(text) => handleChange('lastName', text)} error={errors.lastName} />
-                        <CustomInputWithIcon placeholder={'E-mail*'} icon='envelope' onChangeText={(text) => handleChange('email', text)} error={errors.email} />
-                        <CustomInputWithIcon placeholder={'06xxxxxxxx *'} icon='mobile' keyboardType='numeric' onChangeText={(text) => handleChange('phone', text)} error={errors.phone} />
+                        <CustomInputWithIcon placeholder={'E-mail*'} icon='envelope' onChangeText={(text) => handleChange('email', text)} error={errors.email} iconSize={20}/>
+                        <CustomInputWithIcon placeholder={'06xxxxxxxx *'} icon='mobile' keyboardType='numeric' onChangeText={(text) => handleChange('phone', text)} error={errors.phone} iconSize={32} />
                         <CustomInputWithIcon placeholder={'Address *'} icon='home' onChangeText={(text) => handleChange('address', text)} error={errors.address} />
                         <CustomInputWithIcon placeholder={'Postal Code *'} icon='map-pin' onChangeText={(text) => handleChange('postalCode', text)} error={errors.postalCode} />
                         <CustomInputWithIcon placeholder={'City *'} icon='map-marker' onChangeText={(text) => handleChange('city', text)} error={errors.city} />
 
-                        <Pressable hitSlop={40} onPress={() => setAgreeCheck(!agreeCheck)} style={{ alignItems: 'center', flexDirection: 'row', alignSelf: 'center', }}>
+                        <Pressable hitSlop={40} onPress={() => setAgreeCheck(!agreeCheck)} style={{ flexDirection: 'row',}}>
                             {agreeCheck ? <IconComponentCheck color={Colors.iconColor} /> : <IconComponentSquareBox color={Colors.iconColor} />}
                             <Text variant='titleMedium'> I agree to be contacted to receive a tax receipt.</Text>
                         </Pressable>

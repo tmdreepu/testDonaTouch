@@ -12,12 +12,16 @@ const CustomInputWithIcon = ({
     keyboardType = 'default',
     iconColor = Colors.iconColor,
     error,
+    iconSize = 24,
 }) => {
     return (
         <View>
             <View style={[styles.container, { borderColor: error ? Colors.error : Colors.border }]}>
                 {/* <AntDesign name={icon} size={24} color="gray" /> */}
-                <FontAwesome name={icon} size={24} color={iconColor} />
+                <View style={{width:32}}>
+                    <FontAwesome name={icon} size={iconSize} color={iconColor} />
+                </View>
+
 
                 <TextInput
                     placeholder={placeholder || "Placeholder"}
@@ -44,12 +48,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderColor: Colors.border,
         backgroundColor: Colors.background,
-        height: 48
+        height: 48,
+
 
     },
     input: {
         flex: 1,
-        marginLeft: 10,
         fontSize: 16,
         color: '#000'
     },
